@@ -2,14 +2,32 @@
 <html lang="kk"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>БІЛІМ БӘЙГЕСІ — IT QUIZ</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:radial-gradient(circle at top,#243b70,#090e20 65%);color:#f5f7ff;min-height:100vh;padding:22px}.wrap{max-width:850px;margin:auto}.panel{background:#111b35;border:1px solid #40578d;border-radius:20px;padding:24px;box-shadow:0 18px 55px #0006}h1{font-size:clamp(25px,5vw,42px);margin:8px 0;color:#9fe7ff}.muted{color:#bdc9e8}.row{display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between}.pill{background:#24365f;padding:8px 13px;border-radius:30px}input{width:100%;padding:14px;border-radius:10px;border:1px solid #6078ae;background:#0b1430;color:white;font-size:17px;margin:12px 0}button{border:0;border-radius:12px;padding:13px 18px;font-weight:bold;background:#64d7f5;color:#071326;font-size:16px;cursor:pointer;margin:5px}button:disabled{opacity:.4}.answers{display:grid;gap:10px;margin:20px 0}.answers button{text-align:left;background:#24365f;color:white;border:1px solid #5874ae}.answers button:hover{background:#36548d}.hide{display:none}.bar{height:9px;background:#28395e;border-radius:20px;overflow:hidden;margin:15px 0}.bar span{display:block;height:100%;background:#64d7f5;width:0}.small{font-size:13px}.score{font-size:52px;color:#9fe7ff;font-weight:bold}
+:root{color-scheme:dark}*{box-sizing:border-box}
+body{margin:0;min-height:100vh;padding:22px;font-family:Inter,Arial,sans-serif;color:#f4f7ff;background:radial-gradient(ellipse at 12% 5%,#1b5681 0,transparent 34%),radial-gradient(ellipse at 90% 90%,#482c79 0,transparent 35%),#070d1d}
+.wrap{max-width:900px;margin:0 auto}.panel{position:relative;overflow:hidden;background:linear-gradient(145deg,#121f3d,#10162d 70%);border:1px solid #45618f;border-radius:26px;padding:clamp(20px,4vw,38px);box-shadow:0 25px 80px #0008}
+.panel:before{content:"";position:absolute;inset:0 0 auto;height:4px;background:linear-gradient(90deg,#43d9ff,#9a7bff,#42efc4)}
+h1{font-size:clamp(30px,6vw,52px);line-height:1.04;margin:22px 0 10px;letter-spacing:-1.5px;color:#a8edff}
+h2{font-size:clamp(21px,4vw,30px);line-height:1.25}.muted{color:#b6c5e4;line-height:1.55}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}.pill{background:#20375e;border:1px solid #42638f;padding:9px 14px;border-radius:30px;font-size:14px}
+input{width:100%;padding:16px;border-radius:13px;border:1px solid #5979a8;background:#09142b;color:white;font-size:17px;margin:12px 0 16px;outline:none}
+input:focus{border-color:#62dff8;box-shadow:0 0 0 3px #62dff822}
+button{border:0;border-radius:13px;padding:14px 19px;font-weight:800;background:linear-gradient(100deg,#6ce5fa,#9bbcff);color:#071326;font-size:15px;cursor:pointer;margin:5px;transition:transform .15s,filter .15s}
+button:hover{transform:translateY(-2px);filter:brightness(1.08)}button:disabled{opacity:.45;cursor:default;transform:none}
+#start>button{width:100%;margin:10px 0 0;padding:17px;font-size:16px}
+.answers{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:22px 0}
+.answers button{text-align:left;min-height:66px;background:#1b2d50;color:#f4f7ff;border:1px solid #49648f;line-height:1.4}
+.answers button:hover{background:#294875;border-color:#7bdff5}
+.hide{display:none}.bar{height:10px;background:#263958;border-radius:20px;overflow:hidden;margin:18px 0 24px}.bar span{display:block;height:100%;background:linear-gradient(90deg,#45d7fa,#9d9aff);width:0;transition:width .3s}
+.small{font-size:13px}.score{font-size:clamp(48px,10vw,76px);font-weight:900;letter-spacing:-2px;color:#9feaff;margin:12px 0}
+#feedback{min-height:24px;padding:8px 0;font-weight:700}.eyebrow{color:#70dff7;font-size:12px;letter-spacing:2px;font-weight:800}
+@media(max-width:600px){body{padding:10px}.panel{border-radius:18px;padding:19px}.answers{grid-template-columns:1fr}.answers button{min-height:56px}.pill{font-size:12px}}
 </style><body><main class="wrap"><section class="panel">
-<div class="row"><span class="pill">⚡ IT QUIZ</span><span class="pill">25 сұрақ · 100 ұпай</span></div>
-<h1>БІЛІМ БӘЙГЕСІ</h1><p class="muted">Ақпараттық жүйелер және мәліметтер базасы</p>
-<div id="start"><p>Ойынды бастау үшін аты-жөніңізді енгізіңіз.</p><input id="student" placeholder="Аты-жөніңіз"><button onclick="begin()">ОЙЫНДЫ БАСТАУ →</button><p class="small muted">Әр дұрыс жауапқа 4 ұпай беріледі.</p></div>
+<div class="row"><span class="pill">⚡ IT QUIZ · SMART CHALLENGE</span><span class="pill">100 сұрақтық қор · 25 кездейсоқ сұрақ</span></div>
+<div class="eyebrow">БІЛІМІҢДІ СЫНАЙТЫН ИНТЕЛЛЕКТУАЛДЫ ОЙЫН</div><h1>БІЛІМ БӘЙГЕСІ</h1><p class="muted">Ақпараттық жүйелер · Мәліметтер базасы · Microsoft Access · SQL</p>
+<div id="start"><p>Ойынға қош келдіңіз! Аты-жөніңізді енгізіп, 25 сұрақтан тұратын жеке кезеңді бастаңыз. Әр дұрыс жауап — <b>4 ұпай</b>.</p><input id="student" placeholder="Аты-жөніңіз"><button onclick="begin()">ОЙЫНДЫ БАСТАУ →</button><p class="small muted">Сұрақтар 100 сұрақтық қордан кездейсоқ таңдалады. Әр қатысушыға сұрақтар реті әртүрлі беріледі.</p></div>
 <div id="game" class="hide"><div class="row"><span class="pill" id="stage">1 / 25</span><span class="pill" id="points">Ұпай: 0</span></div><div class="bar"><span id="progress"></span></div><h2 id="question"></h2><div class="answers" id="answers"></div><p class="muted small" id="feedback"></p></div>
-<div id="finish" class="hide"><h2>Ойын аяқталды!</h2><div class="score" id="finalscore"></div><p id="comment"></p><button onclick="location.reload()">ҚАЙТА ОЙНАУ</button></div>
-</section><p class="muted small" style="text-align:center">Оқу мақсатындағы демонстрациялық ойын нұсқасы</p></main>
+<div id="finish" class="hide"><div class="eyebrow">CHALLENGE COMPLETED</div><h2>Ойын аяқталды!</h2><div class="score" id="finalscore"></div><p id="comment"></p><button onclick="location.reload()">ҚАЙТА ОЙНАУ</button></div>
+</section><p class="muted small" style="text-align:center">БІЛІМ БӘЙГЕСІ · IT QUIZ</p></main>
 <script>
 const bank = [
 ["Ақпараттық жүйе дегеніміз не?",["Ақпаратты жинау, сақтау, өңдеу және тарату жүйесі","Тек компьютер ойыны","Тек мәтіндік редактор","Интернет кабелі"],0],
